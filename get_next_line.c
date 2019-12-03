@@ -6,7 +6,7 @@
 /*   By: antmarti <antmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 17:01:25 by antmarti          #+#    #+#             */
-/*   Updated: 2019/12/03 18:54:38 by antmarti         ###   ########.fr       */
+/*   Updated: 2019/12/03 19:23:22 by antmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int get_next_line(int fd, char **line)
 	{	
 		if (file[fd])
 		{
+			//printf("%s\n", file[fd]);
 			*line = ft_strdup(file[fd]);
 			free(file[fd]);
 			file[fd] = 0;
@@ -68,4 +69,40 @@ int		ft_checker(int fd, char **line, char **file)
 		
 	}
 	return (1);
+}
+
+int main()
+{
+        int             fd;
+        int             i;
+        int             j;
+        char                    *line = 0;
+       // char                    *lineadress[66];
+
+        j = 1;
+        printf("\n==========================================\n");
+        printf("========= TEST 5 : Four New Lines ========\n");
+        printf("==========================================\n\n");
+
+        if (!(fd = open("42TESTERS-GNL/files/4_newlines", O_RDONLY)))
+        {
+                printf("\nError in open\n");
+                return (0);
+        }
+        while ((i = get_next_line(fd, &line)) > 0)
+        {
+                printf("|%s\n", line);
+                free(line);
+                j++;
+        }
+        printf("|%s\n", line);
+        free(line);
+        close(fd);
+
+        if (i == -1)
+                printf ("\nError in Fonction - Returned -1\n");
+        else if (j == 5)
+                printf("\nRight number of lines\n");
+        else if (j != 5)
+                printf("\nNot Good - Wrong Number Of Lines\n");
 }
