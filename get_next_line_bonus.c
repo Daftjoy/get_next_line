@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antmarti <antmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/28 17:01:25 by antmarti          #+#    #+#             */
-/*   Updated: 2019/12/04 12:45:06 by antmarti         ###   ########.fr       */
+/*   Created: 2019/12/04 12:37:00 by antmarti          #+#    #+#             */
+/*   Updated: 2019/12/04 12:38:42 by antmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-
-int		get_next_line(int fd, char **line)
+ #include "get_next_line_bonus.h"
+ 
+int get_next_line(int fd, char **line)
 {
 	int			ret;
 	char		buffer[BUFFER_SIZE + 1];
